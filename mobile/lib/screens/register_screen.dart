@@ -68,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         _obscurePassword = !_obscurePassword;
                       });
                     },
-                  ),
+                  ),  
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
