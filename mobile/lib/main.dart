@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart';
-import 'screens/register_screen.dart';
-import 'screens/home_screen.dart';
+import 'app_shells.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(const FerryXApp());
 
-class MyApp extends StatelessWidget {
+class FerryXApp extends StatelessWidget {
+  const FerryXApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Auth App',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => const LoginScreen(),
-        '/register': (context) => const RegisterScreen(),
-        '/home': (context) => const HomeScreen(),
-      },
+      
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: const Color(0xFF0E5FE3),
+      ),
+      home: const AppShell(), // ✅ one place only
     );
   }
 }
