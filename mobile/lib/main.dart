@@ -19,3 +19,4 @@ class FerryXApp extends StatelessWidget {
     );
   }
 }
+
