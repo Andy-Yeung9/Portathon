@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'account_screen.dart'; // Import the AccountScreen
+import 'purchase_screen.dart';
 
 // Main Home Screen
 class HomeScreen extends StatefulWidget {
@@ -11,16 +13,21 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0; // Track selected tab
 
-  // List of screens (blank for now)
+  // List of screens - NOW INCLUDING THE PROPER ACCOUNT SCREEN
   final List<Widget> _screens = [
     const TicketsScreen(),
     const PurchaseScreen(),
-    const AccountScreen(),
+    const AccountScreen(), // This now uses the real AccountScreen
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Portathon App"),
+        backgroundColor: Colors.blue[700],
+        foregroundColor: Colors.white,
+      ),
       body: _screens[_currentIndex], // Show the selected screen
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -31,15 +38,15 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.confirmation_number), // Ticket icon
+            icon: Icon(Icons.confirmation_number),
             label: "Tickets",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart), // Cart icon
+            icon: Icon(Icons.shopping_cart),
             label: "Purchase",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle), // Account icon
+            icon: Icon(Icons.account_circle),
             label: "Account",
           ),
         ],
@@ -48,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// Blank Screens
+// Tickets Screen (you can customize this later)
 class TicketsScreen extends StatelessWidget {
   const TicketsScreen({Key? key}) : super(key: key);
 
@@ -56,37 +63,11 @@ class TicketsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        "Tickets Screen",
+        "Tickets Screen - Coming Soon!",
         style: TextStyle(fontSize: 24),
       ),
     );
   }
 }
 
-class PurchaseScreen extends StatelessWidget {
-  const PurchaseScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "Purchase Screen",
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
-
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "Account Screen",
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
